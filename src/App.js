@@ -1,12 +1,13 @@
-import React from 'react';
-import Login from './components/pages/login/login'
+import "bootstrap/dist/css/bootstrap.min.css";
+import React from "react";
+import Routes from "./routes";
 
-function App (props) {
+function App(props) {
   return (
-    <div className="App" >
-        <Login/>
-    </div>    
+    <div className="App">
+      <Routes />
+    </div>
   );
-};
+}
 
 export default App;

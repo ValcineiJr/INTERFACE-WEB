@@ -1,0 +1,69 @@
+
+body{
+    background: #006494;
+    padding: 70px 15px 0;
+    font-family: 'Poppins', sans-serif;
+}
+h1.titleBox{
+    text-align: center;
+    font-weight: bold;
+    padding-bottom: 40px;
+}
+
+.form input{
+    width: 100%;
+    padding: 0 7px 0 43px;
+    height: 55px;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #d9d9d9;
+}
+.form label{
+    margin-top: 15px;
+    font-size: 14px;
+    color: #333333;
+    line-height: 1.5;
+    padding-left: 7px;
+}
+.forgotPassword {
+    display: flex;
+    justify-content: flex-end;
+}
+.forgotPassword a{
+    color: #666;
+    text-decoration: none;    
+    padding: 8px 0 31px;
+    font-size: 14px;
+}
+.forgotPassword a:hover{
+    color: blue;
+}
+.submitBtn{
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 20px;
+    width: 100%;
+    height: 50px;
+    background: #006494;
+    border: 0;
+    border-radius: 25px;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -o-border-radius: 25px;
+}
+.inputIcon{
+    position: relative;
+}
+.inputIcon i{
+    font-size: 20px;
+    color: #888;
+    position: absolute;
+    padding-left: 15px;
+    padding-top: 10px;
+}
