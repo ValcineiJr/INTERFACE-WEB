@@ -1,12 +1,12 @@
 import React from 'react';
-import styles from './styles/global.css'
+import Login from './components/pages/login/login'
 
-function App() {
+function App (props) {
   return (
-    <div className="App">
-        
-    </div>
+    <div className="App" >
+        <Login/>
+    </div>    
   );
-}
+};
 
 export default App;
