@@ -1,8 +1,9 @@
 
 body{
-    background: #006494;
+    background: #7159C1;
     padding: 70px 15px 0;
     font-family: 'Poppins', sans-serif;
+    
 }
 h1.titleBox{
     text-align: center;
@@ -49,7 +50,7 @@ h1.titleBox{
     padding: 0 20px;
     width: 100%;
     height: 50px;
-    background: #006494;
+    background: #7159C1;
     border: 0;
     border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -57,13 +58,66 @@ h1.titleBox{
     -ms-border-radius: 25px;
     -o-border-radius: 25px;
 }
-.inputIcon{
+.submitBtn:focus{
+    outline-style: none;
+  }
+.input-Icon{
     position: relative;
 }
-.inputIcon i{
+.input-Icon i{
     font-size: 20px;
     color: #888;
     position: absolute;
     padding-left: 15px;
     padding-top: 10px;
 }
+#user{
+    background-color: #FaFaFa;
+}
+#pass{
+    background-color: #FaFaFa;
+}
+
+/* ANIMAÇÃO FORM  */
+
+
+form{
+    animation-name:fade;
+    animation-duration:500ms;
+}
+@keyframes move {
+    from {
+      opacity: 0;
+      transform: translateX(-35%);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0%);
+    }
+  }
+  
+  @keyframes fade {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* ANIMAÇÃO SUBMIT */
+
+  .form-hide{
+      animation: down 500ms ;
+
+  }
+  @keyframes down{
+      from{
+        transform: translateY(0);
+      }
+      to{
+        transform: translateY(100vh);
+      }
+  }
