@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { addAuthListener, loginIn, logOut } from "../../firebase";
+import { loginIn, logOut } from "../../firebase";
 import { Container } from "./styles";
 import "./styles.css";
 // import { Container } from './styles';
@@ -11,20 +11,15 @@ export default function Lg() {
 
   useEffect(() => {
     logOut();
-    addAuthListener(user => {
-      if (user) {
-        firebase
-          .database()
-          .ref("usuarios")
-          .child(user.uid)
-          .set({
-            nome: nome
-          });
-
-        alert("Cadastrado");
-      }
-    });
   }, []);
+
+  function handleEmail(event) {
+
+  function handleEmail(event) {
+
+  function handleEmail(event) {
+
+  function handleEmail(event) {
 
   function handleEmail(event) {
     setEmail(event.target.value);
