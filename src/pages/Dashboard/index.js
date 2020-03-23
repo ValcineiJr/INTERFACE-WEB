@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
+import Form from "../../components/Form";
 import {
   AuthIcon,
   AvatarConfig,
@@ -26,6 +28,9 @@ import "./styles.css";
 
 export default function Dashboard() {
   const [theme, setTheme] = useState("dark");
+  const [showForm, setShowForm] = useState(false);
+  const [TitleForm, setTitleForm] = useState("");
+
   const PrimaryTheme = {
     bgColor: "#172b4d",
     shadowColor: "#0d2042",
@@ -189,6 +194,7 @@ export default function Dashboard() {
   function RenderItem() {
     return ItensInfo.map(item => (
       <DashboardItem
+        onClick={() => openForm(item.name)}
         key={item.area}
         cor={
           theme == "dark" ? PrimaryTheme.ItemColor : SecondaryTheme.ItemColor
@@ -260,6 +266,11 @@ export default function Dashboard() {
     ));
   }
 
+  function openForm(title) {
+    setShowForm(true);
+    setTitleForm(title);
+  }
+
   return (
     <Container>
       <Header
@@ -301,6 +312,11 @@ export default function Dashboard() {
         <DashboardMenu>
           <RenderItem />
         </DashboardMenu>
+        <Modal show={showForm} onHide={() => setShowForm(false)}>
+          <Modal.Body>
+            <Form title={TitleForm} closeForm={() => setShowForm(false)} />
+          </Modal.Body>
+        </Modal>
       </Body>
     </Container>
   );
