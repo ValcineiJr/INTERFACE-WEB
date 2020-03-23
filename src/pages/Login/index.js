@@ -22,6 +22,12 @@ export default function Lg() {
   function handleEmail(event) {
 
   function handleEmail(event) {
+
+  function handleEmail(event) {
+
+  function handleEmail(event) {
+
+  function handleEmail(event) {
     setEmail(event.target.value);
   }
   function handlePassword(event) {
