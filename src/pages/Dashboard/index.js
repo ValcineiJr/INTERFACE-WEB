@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
+import logo from "../../assets/img/logo.png";
 import Form from "../../components/Form";
 import {
   AuthIcon,
@@ -21,6 +22,7 @@ import {
   ItemIcon,
   ItemNome,
   ItemTitle,
+  Logo,
   LogoBox,
   MenuBox
 } from "./styles";
@@ -30,6 +32,7 @@ export default function Dashboard() {
   const [theme, setTheme] = useState("dark");
   const [showForm, setShowForm] = useState(false);
   const [TitleForm, setTitleForm] = useState("");
+  const [ColorsForm, setColorForm] = useState([]);
 
   const PrimaryTheme = {
     bgColor: "#172b4d",
@@ -194,7 +197,7 @@ export default function Dashboard() {
   function RenderItem() {
     return ItensInfo.map(item => (
       <DashboardItem
-        onClick={() => openForm(item.name)}
+        onClick={() => openForm(item.name, item.cor1, item.cor2)}
         key={item.area}
         cor={
           theme == "dark" ? PrimaryTheme.ItemColor : SecondaryTheme.ItemColor
@@ -266,9 +269,10 @@ export default function Dashboard() {
     ));
   }
 
-  function openForm(title) {
+  function openForm(title, color1, color2) {
     setShowForm(true);
     setTitleForm(title);
+    setColorForm([color1, color2]);
   }
 
   return (
@@ -280,7 +284,9 @@ export default function Dashboard() {
             : SecondaryTheme.headerColor
         }
       >
-        <LogoBox></LogoBox>
+        <LogoBox>
+          <Logo src={logo} />
+        </LogoBox>
         <MenuBox>
           <Button onClick={handleTheme}>
             {theme == "dark" ? (
@@ -313,7 +319,11 @@ export default function Dashboard() {
           <RenderItem />
         </DashboardMenu>
         <Modal show={showForm} onHide={() => setShowForm(false)}>
-          <Modal.Body>
+          <Modal.Body
+            style={{
+              background: `linear-gradient(87deg, ${ColorsForm[0]} 0, ${ColorsForm[1]} 100%)`
+            }}
+          >
             <Form title={TitleForm} closeForm={() => setShowForm(false)} />
           </Modal.Body>
         </Modal>

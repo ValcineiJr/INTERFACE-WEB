@@ -23,7 +23,13 @@ export const MenuBox = styled.div`
   display: flex;
   align-items: center;
 `;
-export const LogoBox = styled.div``;
+export const LogoBox = styled.div`
+  margin-left: 25px;
+  width: 40px;
+`;
+export const Logo = styled.img`
+  height: 100%;
+`;
 export const DashboardMenu = styled.div`
   display: grid;
   grid-template-areas: "um dois tres quatro";
