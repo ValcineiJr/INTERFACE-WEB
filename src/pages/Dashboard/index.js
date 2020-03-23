@@ -117,23 +117,19 @@ export default function Dashboard() {
         <Button role="button" id="dropdownMenuLink" data-toggle="dropdown">
           <i class="fas fa-cog"></i>
         </Button>
-        <div
-          class="dropdown-menu dropFather"
+        <DropdownFather
+          className="dropdown-menu dropFather"
           aria-labelledby="dropdownMenuLink"
+          bgColor={
+            theme == "dark" ? PrimaryTheme.ItemColor : SecondaryTheme.ItemColor
+          }
+          borderColor={
+            theme == "dark"
+              ? PrimaryTheme.shadowColor
+              : SecondaryTheme.shadowColor
+          }
         >
-          <DropdownFather
-            className="drop"
-            bgColor={
-              theme == "dark"
-                ? PrimaryTheme.ItemColor
-                : SecondaryTheme.ItemColor
-            }
-            borderColor={
-              theme == "dark"
-                ? PrimaryTheme.ItemColor
-                : SecondaryTheme.ItemColor
-            }
-          >
+          <div className="drop">
             {ItensDrop.map(item => (
               <DropdownBox href={item.slug}>
                 <ItemIcon
@@ -143,11 +139,19 @@ export default function Dashboard() {
                 >
                   <i class={item.icon}></i>
                 </ItemIcon>
-                <DropdownText>{item.name}</DropdownText>
+                <DropdownText
+                  color={
+                    theme == "dark"
+                      ? PrimaryTheme.colorText
+                      : SecondaryTheme.colorText
+                  }
+                >
+                  {item.name}
+                </DropdownText>
               </DropdownBox>
             ))}
-          </DropdownFather>
-        </div>
+          </div>
+        </DropdownFather>
       </>
     );
   }

@@ -141,11 +141,12 @@ export const DropdownBox = styled.a`
   align-items: center;
 `;
 export const DropdownFather = styled.div`
-  border: 2px solid ${props => props.borderColor};
+  border: 1px solid ${props => props.borderColor};
   background: ${props => props.bgColor} !important;
 `;
 export const DropdownText = styled.span`
-  color: #fff;
+  color: ${props => props.color};
   font-size: 14px;
   padding-top: 10px;
+  font-weight: bold;
 `;
