@@ -140,6 +140,10 @@ export const DropdownBox = styled.a`
   flex-direction: column;
   align-items: center;
 `;
+export const DropdownFather = styled.div`
+  border: 2px solid ${props => props.borderColor};
+  background: ${props => props.bgColor} !important;
+`;
 export const DropdownText = styled.span`
   color: #fff;
   font-size: 14px;

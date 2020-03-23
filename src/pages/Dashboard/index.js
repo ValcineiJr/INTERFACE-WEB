@@ -11,6 +11,7 @@ import {
   DashboardItemHeader,
   DashboardMenu,
   DropdownBox,
+  DropdownFather,
   DropdownText,
   Header,
   HeaderLeft,
@@ -112,22 +113,42 @@ export default function Dashboard() {
 
   function InfoDropdown() {
     return (
-      <div class="dropdown-menu dropFather" aria-labelledby="dropdownMenuLink">
-        <div className="drop">
-          {ItensDrop.map(item => (
-            <DropdownBox href={item.slug}>
-              <ItemIcon
-                style={{
-                  background: `linear-gradient(87deg, ${item.color1} 0, ${item.color2} 100%)`
-                }}
-              >
-                <i class={item.icon}></i>
-              </ItemIcon>
-              <DropdownText>{item.name}</DropdownText>
-            </DropdownBox>
-          ))}
+      <>
+        <Button role="button" id="dropdownMenuLink" data-toggle="dropdown">
+          <i class="fas fa-cog"></i>
+        </Button>
+        <div
+          class="dropdown-menu dropFather"
+          aria-labelledby="dropdownMenuLink"
+        >
+          <DropdownFather
+            className="drop"
+            bgColor={
+              theme == "dark"
+                ? PrimaryTheme.ItemColor
+                : SecondaryTheme.ItemColor
+            }
+            borderColor={
+              theme == "dark"
+                ? PrimaryTheme.ItemColor
+                : SecondaryTheme.ItemColor
+            }
+          >
+            {ItensDrop.map(item => (
+              <DropdownBox href={item.slug}>
+                <ItemIcon
+                  style={{
+                    background: `linear-gradient(87deg, ${item.color1} 0, ${item.color2} 100%)`
+                  }}
+                >
+                  <i class={item.icon}></i>
+                </ItemIcon>
+                <DropdownText>{item.name}</DropdownText>
+              </DropdownBox>
+            ))}
+          </DropdownFather>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -255,9 +276,6 @@ export default function Dashboard() {
           </Button>
           <Button>
             <i class="fas fa-bell"></i>
-          </Button>
-          <Button role="button" id="dropdownMenuLink" data-toggle="dropdown">
-            <i class="fas fa-cog"></i>
           </Button>
           <InfoDropdown />
           <Button>
