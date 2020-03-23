@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import {
   AuthIcon,
   AvatarConfig,
@@ -9,6 +10,8 @@ import {
   DashboardItemFooter,
   DashboardItemHeader,
   DashboardMenu,
+  DropdownBox,
+  DropdownText,
   Header,
   HeaderLeft,
   HeaderRight,
@@ -61,17 +64,41 @@ export default function Dashboard() {
       area: "tres",
       cor1: "#fb6340",
       cor2: "#fbb140",
-      auth: "Autenticação Necessária",
+      auth: "Acesso Permitido",
       verified: 1
     },
     {
       name: "Administração",
       icon: "fas fa-user-shield",
       area: "quatro",
-      cor1: "#f5365c",
-      cor2: "#f5365c",
+      cor1: "#f5363c",
+      cor2: "#f5367c",
       auth: "Acesso Restrito",
       verified: 0
+    }
+  ];
+
+  const ItensDrop = [
+    {
+      name: "Vendas",
+      icon: "fas fa-cash-register",
+      color1: "#2dce89",
+      color2: "#2dcecc",
+      slug: "#"
+    },
+    {
+      name: "Pedidos",
+      icon: "fas fa-hand-pointer",
+      color1: "#11cdef",
+      color2: "#1171ef",
+      slug: "#"
+    },
+    {
+      name: "Finanças",
+      icon: "fas fa-user-shield",
+      color1: "#f5363c",
+      color2: "#f5367c",
+      slug: "#"
     }
   ];
 
@@ -81,6 +108,57 @@ export default function Dashboard() {
     } else {
       setTheme("dark");
     }
+  }
+
+  function InfoDropdown() {
+    return (
+      <div class="dropdown-menu dropFather" aria-labelledby="dropdownMenuLink">
+        <div className="drop">
+          {ItensDrop.map(item => (
+            <DropdownBox href={item.slug}>
+              <ItemIcon
+                style={{
+                  background: `linear-gradient(87deg, ${item.color1} 0, ${item.color2} 100%)`
+                }}
+              >
+                <i class={item.icon}></i>
+              </ItemIcon>
+              <DropdownText>{item.name}</DropdownText>
+            </DropdownBox>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  function AvatarDropdown() {
+    return (
+      <>
+        <span type="button" id="dropdownMenuButton" data-toggle="dropdown">
+          Empresa
+        </span>
+        <div
+          class="dropdown-menu dropdown-menu-right"
+          aria-labelledby="dropdownMenuButton"
+        >
+          <Link class="dropdown-item" to="/perfil">
+            Meu Perfil
+          </Link>
+          <a class="dropdown-item" href="#">
+            Configurações
+          </a>
+          <a class="dropdown-item" href="#">
+            Atividades
+          </a>
+          <a class="dropdown-item" href="#">
+            Ajuda
+          </a>
+          <a class="dropdown-item" href="#">
+            Sair
+          </a>
+        </div>
+      </>
+    );
   }
 
   function RenderItem() {
@@ -178,9 +256,10 @@ export default function Dashboard() {
           <Button>
             <i class="fas fa-bell"></i>
           </Button>
-          <Button>
+          <Button role="button" id="dropdownMenuLink" data-toggle="dropdown">
             <i class="fas fa-cog"></i>
           </Button>
+          <InfoDropdown />
           <Button>
             <AvatarConfig>
               <img
@@ -189,7 +268,7 @@ export default function Dashboard() {
                 src="https://www.communityskillscentre.com/wp-content/uploads/2019/07/placeholder-man.png"
                 alt=""
               />
-              <span>Empresa</span>
+              <AvatarDropdown />
             </AvatarConfig>
           </Button>
         </MenuBox>

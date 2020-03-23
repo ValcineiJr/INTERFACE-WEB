@@ -134,3 +134,14 @@ export const AuthIcon = styled.i`
   margin-right: 10px;
   color: ${props => props.cor};
 `;
+export const DropdownBox = styled.a`
+  text-decoration: none !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+export const DropdownText = styled.span`
+  color: #fff;
+  font-size: 14px;
+  padding-top: 10px;
+`;
