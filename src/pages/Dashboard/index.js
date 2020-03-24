@@ -3,12 +3,16 @@ import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import Form from "../../components/Form";
+import SystemInfo from "../../components/SystemInfo";
 import {
   AuthIcon,
   AvatarConfig,
   Body,
   Button,
+  Calculator,
+  CashMenu,
   Container,
+  DashboardCash,
   DashboardItem,
   DashboardItemFooter,
   DashboardItemHeader,
@@ -24,6 +28,7 @@ import {
   ItemTitle,
   Logo,
   LogoBox,
+  LogoName,
   MenuBox
 } from "./styles";
 import "./styles.css";
@@ -31,6 +36,7 @@ import "./styles.css";
 export default function Dashboard() {
   const [theme, setTheme] = useState("dark");
   const [showForm, setShowForm] = useState(false);
+  const [showSystemInfo, setShowSystemInfo] = useState(false);
   const [TitleForm, setTitleForm] = useState("");
   const [ColorsForm, setColorForm] = useState([]);
 
@@ -274,6 +280,35 @@ export default function Dashboard() {
     setTitleForm(title);
     setColorForm([color1, color2]);
   }
+  function openSystemInfo() {
+    setShowSystemInfo(true);
+  }
+
+  function Modals() {
+    return (
+      <>
+        <Modal
+          show={showForm}
+          centered={true}
+          onHide={() => setShowForm(false)}
+        >
+          <Modal.Body
+            style={{
+              borderRadius: 5,
+              background: `linear-gradient(87deg, ${ColorsForm[0]} 0, ${ColorsForm[1]} 100%)`
+            }}
+          >
+            <Form title={TitleForm} closeForm={() => setShowForm(false)} />
+          </Modal.Body>
+        </Modal>
+        <Modal show={showSystemInfo} onHide={() => setShowSystemInfo(false)}>
+          <Modal.Body>
+            <SystemInfo closeModal={() => setShowSystemInfo(false)} />
+          </Modal.Body>
+        </Modal>
+      </>
+    );
+  }
 
   return (
     <Container>
@@ -284,8 +319,8 @@ export default function Dashboard() {
             : SecondaryTheme.headerColor
         }
       >
-        <LogoBox>
-          <Logo src={logo} />
+        <LogoBox onClick={openSystemInfo}>
+          <Logo src={logo} /> <LogoName>Horizon</LogoName>
         </LogoBox>
         <MenuBox>
           <Button onClick={handleTheme}>
@@ -318,15 +353,11 @@ export default function Dashboard() {
         <DashboardMenu>
           <RenderItem />
         </DashboardMenu>
-        <Modal show={showForm} onHide={() => setShowForm(false)}>
-          <Modal.Body
-            style={{
-              background: `linear-gradient(87deg, ${ColorsForm[0]} 0, ${ColorsForm[1]} 100%)`
-            }}
-          >
-            <Form title={TitleForm} closeForm={() => setShowForm(false)} />
-          </Modal.Body>
-        </Modal>
+        <Modals />
+        <DashboardCash>
+          <CashMenu></CashMenu>
+          <Calculator>Calculadora</Calculator>
+        </DashboardCash>
       </Body>
     </Container>
   );

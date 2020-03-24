@@ -2,8 +2,8 @@ import styled from "styled-components";
 
 export const Container = styled.div`
   background: #172b4d;
-  flex: 1;
-  height: 100vh;
+
+  padding-bottom: 58px;
 `;
 export const Header = styled.div`
   background: ${props => props.cor};
@@ -17,7 +17,6 @@ export const Body = styled.div`
   padding: 0 25px;
   padding-top: 50px;
   height: 89%;
-  padding-bottom: 26.8rem !important;
 `;
 export const MenuBox = styled.div`
   display: flex;
@@ -25,10 +24,20 @@ export const MenuBox = styled.div`
 `;
 export const LogoBox = styled.div`
   margin-left: 25px;
-  width: 40px;
+  display: flex;
+  align-items: center;
+  width: 170px;
+  cursor: pointer;
 `;
 export const Logo = styled.img`
-  height: 100%;
+  width: 55px;
+  margin-right: 5px;
+`;
+export const LogoName = styled.span`
+  font-size: 22px;
+  font-weight: bold;
+  color: #fff;
+  font-family: "Poppins", sans-serif;
 `;
 export const DashboardMenu = styled.div`
   display: grid;
@@ -57,7 +66,7 @@ export const DashboardItem = styled.div`
   border-radius: 5px;
 
   &:hover {
-    transform: translateY(-4px);
+    transform: translateY(-6px);
     box-shadow: 0 10px 15px ${props => props.shadowColor},
       0 5px 2px ${props => props.shadowColor};
   }
@@ -155,4 +164,30 @@ export const DropdownText = styled.span`
   font-size: 14px;
   padding-top: 10px;
   font-weight: bold;
+`;
+export const DashboardCash = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 800px;
+  margin-top: 55px;
+  height: 320px;
+`;
+export const CashMenu = styled.div`
+  flex: 1;
+  background: #0a1b36;
+`;
+export const Calculator = styled.div`
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+`;
+export const ZapBox = styled.div`
+  display: flex;
+  margin: 0 auto;
+  max-width: 800px;
+  margin-top: 55px;
+  height: 320px;
 `;

@@ -9,9 +9,9 @@ export const SignIn = styled.button`
   height: 40px;
   border-radius: 5px;
   border: 0;
-  background: #ddd;
+  background: #fafafa;
 
-  border: 1px solid #666;
+  border: 1px solid #ddd;
   color: #000;
   font-size: 18px;
   font-family: "Poppins", sans-serif;
@@ -21,7 +21,7 @@ export const Input = styled.input`
   margin-top: 15px;
   padding: 10px 16px;
   border-radius: 5px;
-  border: 1px solid #666;
+  border: 1px solid #ddd;
   color: #000;
   outline: none;
   font-size: 16px;
