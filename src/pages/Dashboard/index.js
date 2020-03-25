@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Modal from "react-bootstrap/Modal";
 import { Link } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
+import Calculator from "../../components/Calculator";
 import Form from "../../components/Form";
 import SystemInfo from "../../components/SystemInfo";
 import {
@@ -9,7 +10,6 @@ import {
   AvatarConfig,
   Body,
   Button,
-  Calculator,
   CashMenu,
   Container,
   DashboardCash,
@@ -192,9 +192,9 @@ export default function Dashboard() {
           <a class="dropdown-item" href="#">
             Ajuda
           </a>
-          <a class="dropdown-item" href="#">
+          <Link class="dropdown-item" to="/home">
             Sair
-          </a>
+          </Link>
         </div>
       </>
     );
@@ -294,7 +294,7 @@ export default function Dashboard() {
         >
           <Modal.Body
             style={{
-              borderRadius: 5,
+              borderRadius: 3,
               background: `linear-gradient(87deg, ${ColorsForm[0]} 0, ${ColorsForm[1]} 100%)`
             }}
           >
@@ -355,8 +355,8 @@ export default function Dashboard() {
         </DashboardMenu>
         <Modals />
         <DashboardCash>
-          <CashMenu></CashMenu>
-          <Calculator>Calculadora</Calculator>
+          <CashMenu>MENU</CashMenu>
+          <Calculator />
         </DashboardCash>
       </Body>
     </Container>

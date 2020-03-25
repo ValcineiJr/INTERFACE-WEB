@@ -1,5 +1,6 @@
 import React from "react";
-import { Container } from "./styles";
+import "./styles.css";
+import { Container } from "./styles.js";
 
 export default function Perfil() {
   return (

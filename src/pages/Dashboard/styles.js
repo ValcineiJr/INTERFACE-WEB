@@ -6,7 +6,7 @@ export const Container = styled.div`
   padding-bottom: 58px;
 `;
 export const Header = styled.div`
-  background: ${props => props.cor};
+  background: #0a1b36;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   height: 11%;
   display: flex;
@@ -66,7 +66,7 @@ export const DashboardItem = styled.div`
   border-radius: 5px;
 
   &:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: 0 10px 15px ${props => props.shadowColor},
       0 5px 2px ${props => props.shadowColor};
   }
@@ -167,27 +167,35 @@ export const DropdownText = styled.span`
 `;
 export const DashboardCash = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: column;
-  margin: 0 auto;
-  max-width: 800px;
-  margin-top: 55px;
-  height: 320px;
+  align-items: center;
+  margin-top: 65px;
+  height: 400px;
 `;
 export const CashMenu = styled.div`
+  display: flex;
   flex: 1;
-  background: #0a1b36;
+  width: 100%;
+  max-width: 800px;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(87deg, #2dce89 0, #2dcecc 100%);
 `;
-export const Calculator = styled.div`
-  flex: 3;
+export const CalculatorBox = styled.div`
+  flex: 1;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #fff;
-`;
-export const ZapBox = styled.div`
-  display: flex;
-  margin: 0 auto;
-  max-width: 800px;
-  margin-top: 55px;
-  height: 320px;
+  border-radius: 5px;
+
+  font-family: "Roboto", sans-serif;
+  font-size: 15px;
+  color: #8898aa;
+  font-weight: bold;
+  @media (max-width: 668px) {
+    & {
+      order: 1;
+    }
+  }
 `;
