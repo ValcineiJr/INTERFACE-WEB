@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import KeyboardEventHandler from "react-keyboard-event-handler";
 import { Container, KeyBoard, Keys, Screen, Valor } from "./styles";
 
-export default function Calculator() {
+export default function Calculator({ props }) {
   const [valor, setValor] = useState("");
 
   function clear() {
@@ -50,16 +51,107 @@ export default function Calculator() {
       equals();
     }
   }
+  function OnKeyPress() {
+    let keyToPress = [
+      "0",
+      "1",
+      "2",
+      "3",
+      "4",
+      "5",
+      "6",
+      "7",
+      "8",
+      "9",
+      "backspace",
+      "enter",
+      "+",
+      "-",
+      "*",
+      "/",
+      ".",
+      "del"
+    ];
+    return (
+      <KeyboardEventHandler
+        handleKeys={keyToPress}
+        onKeyEvent={(key, e) => {
+          switch (key) {
+            case "0":
+              add(key);
+              break;
+            case "1":
+              add(key);
+              break;
+            case "2":
+              add(key);
+              break;
+            case "3":
+              add(key);
+              break;
+            case "4":
+              add(key);
+              break;
+            case "5":
+              add(key);
+              break;
+            case "6":
+              add(key);
+              break;
+            case "7":
+              add(key);
+              break;
+            case "8":
+              add(key);
+              break;
+            case "9":
+              add(key);
+              break;
+            case "backspace":
+              back();
+              break;
+            case "enter":
+              equals();
+              break;
+            case "+":
+              add(key);
+              break;
+            case "-":
+              add(key);
+              break;
+            case "/":
+              add(key);
+              break;
+            case "*":
+              add(key);
+              break;
+            case ".":
+              add(key);
+              break;
+            case "del":
+              clear();
+              break;
+          }
+        }}
+      />
+    );
+  }
 
   return (
     <Container>
+      <OnKeyPress />
       <KeyBoard>
         {keys.map(key => (
           <Keys onClick={key.insert}>{key.value}</Keys>
         ))}
       </KeyBoard>
       <Screen>
-        <Valor value={valor} onChange={handleKey} onKeyPress={handleKeyPress} />
+        <Valor
+          value={valor}
+          disabled
+          onChange={handleKey}
+          onKeyPress={handleKeyPress}
+        />
       </Screen>
     </Container>
   );

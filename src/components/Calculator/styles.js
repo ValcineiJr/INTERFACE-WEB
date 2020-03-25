@@ -38,7 +38,11 @@ export const KeyBoard = styled.div`
     }
   }
 `;
-export const Keys = styled.button`
+export const Keys = styled.span`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
   flex: 1;
   min-width: 100px;
   font-weight: bold;
@@ -57,4 +61,10 @@ export const Valor = styled.input`
   width: 100%;
   height: 100%;
   padding-left: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+
+  &:disabled {
+    background: #fff;
+    color: #000;
+  }
 `;
