@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Modal from "react-bootstrap/Modal";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 import logo from "../../assets/img/logo.png";
 import Calculator from "../../components/Calculator";
 import Form from "../../components/Form";
 import SystemInfo from "../../components/SystemInfo";
+import { addAuthListener, logOut } from "../../firebase";
 import {
   AuthIcon,
   AvatarConfig,
@@ -39,6 +40,18 @@ export default function Dashboard() {
   const [showSystemInfo, setShowSystemInfo] = useState(false);
   const [TitleForm, setTitleForm] = useState("");
   const [ColorsForm, setColorForm] = useState([]);
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/dashboard" } };
+
+  useEffect(() => {
+    addAuthListener(user => {
+      if (!user) {
+        history.replace("/");
+      }
+    });
+  }, []);
 
   const PrimaryTheme = {
     bgColor: "#172b4d",
@@ -170,6 +183,11 @@ export default function Dashboard() {
     );
   }
 
+  function getOff() {
+    logOut();
+    history.replace(from);
+  }
+
   function AvatarDropdown() {
     return (
       <>
@@ -192,7 +210,7 @@ export default function Dashboard() {
           <a class="dropdown-item" href="#">
             Ajuda
           </a>
-          <Link class="dropdown-item" to="/home">
+          <Link class="dropdown-item" onClick={getOff}>
             Sair
           </Link>
         </div>

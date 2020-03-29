@@ -13,7 +13,11 @@ var FirebaseConfig = {
 export default Firebase.initializeApp(FirebaseConfig);
 
 export const logOut = () => {
-  return Firebase.auth().signOut();
+  return Firebase.auth()
+    .signOut()
+    .then(() => {
+      sessionStorage.removeItem("user");
+    });
 };
 
 export const addAuthListener = callback => {
@@ -21,5 +25,13 @@ export const addAuthListener = callback => {
 };
 
 export const loginIn = (email, password) => {
-  return Firebase.auth().signInWithEmailAndPassword(email, password);
+  return Firebase.auth()
+    .signInWithEmailAndPassword(email, password)
+    .then(() => {
+      let uid = Firebase.auth().currentUser.uid;
+      sessionStorage.setItem("user", uid);
+    })
+    .catch(err => {
+      alert(err);
+    });
 };

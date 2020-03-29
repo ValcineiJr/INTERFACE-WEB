@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { loginIn, logOut } from "../../firebase";
+import { Link, useHistory, useLocation } from "react-router-dom";
+import { addAuthListener, loginIn } from "../../firebase";
 import { Container } from "./styles";
 import "./styles.css";
 // import { Container } from './styles';
@@ -8,9 +8,32 @@ import "./styles.css";
 export default function Lg() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  let history = useHistory();
+  let location = useLocation();
+
+  let { from } = location.state || { from: { pathname: "/dashboard" } };
+
+  const Auth = {
+    isAuthenticated: false,
+    authenticate(cb) {
+      Auth.isAuthenticated = true;
+      setTimeout(cb, 100); // fake async
+    },
+    signout(cb) {
+      Auth.isAuthenticated = false;
+      setTimeout(cb, 100);
+    }
+  };
 
   useEffect(() => {
-    logOut();
+    if (sessionStorage.getItem("user") != null) {
+      history.replace(from);
+    }
+    addAuthListener(user => {
+      if (user) {
+        history.replace(from);
+      }
+    });
   }, []);
 
   function handleEmail(event) {
