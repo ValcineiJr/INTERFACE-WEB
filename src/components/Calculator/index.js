@@ -13,13 +13,53 @@ export default function Calculator({ props }) {
     setValor(exp.substring(0, exp.length - 1));
   }
   function equals() {
-    if (valor) {
+    let Valor = valor.substring(valor.length - 1);
+
+    if (
+      valor != "." &&
+      Valor != "+" &&
+      Valor != "*" &&
+      Valor != "-" &&
+      Valor != "/"
+    ) {
       let exp = eval(valor);
       setValor(exp.toString());
     }
   }
   function add(item) {
-    setValor("" + valor + item);
+    let Valor = valor.substring(valor.length - 1);
+
+    if (
+      (item == "-" && Valor == "") ||
+      (item == "+" && Valor == "") ||
+      (item == "*" && Valor == "") ||
+      (item == "/" && Valor == "")
+    ) {
+      setValor("");
+    } else if (
+      Valor == "." &&
+      (item == "+" || item == "/" || item == "-" || item == "*")
+    ) {
+      setValor(valor);
+    } else if (
+      (Valor == "+" || Valor == "-" || Valor == "/" || Valor == "*") &&
+      item == "."
+    ) {
+      setValor(valor);
+    } else if (
+      (Valor == "+" &&
+        (item == "+" || item == "-" || item == "*" || item == "/")) ||
+      (Valor == "-" &&
+        (item == "+" || item == "-" || item == "*" || item == "/")) ||
+      (Valor == "*" &&
+        (item == "+" || item == "-" || item == "*" || item == "/")) ||
+      (Valor == "/" &&
+        (item == "+" || item == "-" || item == "*" || item == "/"))
+    ) {
+      setValor(valor);
+    } else {
+      setValor("" + valor + item);
+    }
   }
 
   const keys = [
