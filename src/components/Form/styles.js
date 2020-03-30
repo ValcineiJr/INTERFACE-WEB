@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const Container = styled.form`
   flex: 1;
 `;
-export const SignIn = styled.button`
+export const SignIn = styled.input`
   margin-top: 23px;
   width: 160px;
   height: 40px;

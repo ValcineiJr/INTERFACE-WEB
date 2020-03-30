@@ -5,6 +5,7 @@ import logo from "../../assets/img/logo.png";
 import Calculator from "../../components/Calculator";
 import Form from "../../components/Form";
 import SystemInfo from "../../components/SystemInfo";
+import api from "../../services/api";
 import {
   AuthIcon,
   AvatarConfig,
@@ -302,6 +303,21 @@ export default function Dashboard() {
     setShowSystemInfo(true);
   }
 
+  async function handleLoginEmployee(data) {
+    let response = await api.post("/employeeLogin", data);
+    let message = response.data.msg;
+    let code = response.data.code;
+    console.log(response);
+    console.log("Data" + data);
+    if (code == 0) {
+      //Funcionário não cadastrado
+    } else if (code == 1) {
+      //Funcionário logado com sucesso
+    } else {
+      //Senha incorreta
+    }
+  }
+
   function Modals() {
     return (
       <>
@@ -316,7 +332,11 @@ export default function Dashboard() {
               background: `linear-gradient(87deg, ${ColorsForm[0]} 0, ${ColorsForm[1]} 100%)`
             }}
           >
-            <Form title={TitleForm} closeForm={() => setShowForm(false)} />
+            <Form
+              title={TitleForm}
+              onSubmit={handleLoginEmployee}
+              closeForm={() => setShowForm(false)}
+            />
           </Modal.Body>
         </Modal>
         <Modal show={showSystemInfo} onHide={() => setShowSystemInfo(false)}>
