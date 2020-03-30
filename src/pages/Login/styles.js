@@ -85,3 +85,19 @@ export const SubmitBtn = styled.input`
   border: 0;
   border-radius: 25px;
 `;
+export const ContainerMessage = styled.div`
+  display: ${props => props.show};
+  position: absolute;
+  top: 0;
+  justify-content: center;
+  background: ${props => props.bgColor};
+  margin-top: 10px;
+  padding: 40px;
+  min-width: 220px;
+  border-radius: 20px;
+  transition: all 0.6s;
+`;
+export const TextMessage = styled.span`
+  color: #fff;
+  font-size: 18px;
+`;

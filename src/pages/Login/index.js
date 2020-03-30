@@ -5,10 +5,12 @@ import api from "../../services/api";
 import {
   BoxLogin,
   Container,
+  ContainerMessage,
   ForgotPassword,
   FormLogin,
   InputIcon,
   SubmitBtn,
+  TextMessage,
   TitleBox
 } from "./styles";
 // import { Container } from './styles';
@@ -16,6 +18,7 @@ import {
 export default function Lg() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const colors = { error: "#dc3545", success: "#28a745" };
   const [loginMessage, setLoginMessage] = useState("");
   let history = useHistory();
   let location = useLocation();
@@ -33,30 +36,38 @@ export default function Lg() {
     });
   }, []);
 
-  function handleEmail(event) {
-    setEmail(event.target.value);
+  async function handleSubmit(e) {
+    e.preventDefault();
+
+    const response = await api.post("/companyLogin", {
+      email,
+      password
+    });
+
+    setLoginMessage(response.data.msg);
   }
-  function handlePassword(event) {
-    setPassword(event.target.value);
+
+  function Message() {
+    return (
+      <ContainerMessage
+        show={loginMessage == "" ? "none" : "flex"}
+        bgColor={
+          loginMessage == "Email e/ou senhas incorretos"
+            ? colors.error
+            : colors.success
+        }
+      >
+        <TextMessage>{loginMessage}</TextMessage>
+      </ContainerMessage>
+    );
   }
-  async function enter() {
-    const response = await api
-      .post("/companyLogin", {
-        email,
-        password
-      })
-      .then(user => {
-        setLoginMessage(user.data.msg);
-      })
-      .catch(err => {
-        setLoginMessage(response.data.msg);
-      });
-  }
+
   return (
     <Container>
+      <Message />
       <BoxLogin>
         <TitleBox>Login</TitleBox>
-        <FormLogin>
+        <FormLogin onSubmit={handleSubmit}>
           <label htmlFor="email">Email</label>
           <InputIcon>
             <i class="far fa-user" />
@@ -67,8 +78,7 @@ export default function Lg() {
               id="email"
               required
               value={email}
-              onChange={handleEmail}
-              className="inputblock"
+              onChange={e => setEmail(e.target.value)}
             />
           </InputIcon>
 
@@ -81,9 +91,8 @@ export default function Lg() {
               name="password"
               id="pass"
               value={password}
-              onChange={handlePassword}
+              onChange={e => setPassword(e.target.value)}
               required
-              className="inputblock"
             />
           </InputIcon>
           <ForgotPassword>
