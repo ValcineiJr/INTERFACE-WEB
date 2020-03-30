@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const Container = styled.div`
   display: flex;
   max-width: 800px;
-  height: 320px;
 
   @media (max-width: 668px) {
     & {
@@ -44,6 +43,7 @@ export const Keys = styled.span`
   align-items: center;
   cursor: pointer;
   flex: 1;
+  min-height: 64px;
   min-width: 100px;
   font-weight: bold;
   background: #0a1b36;
@@ -58,13 +58,14 @@ export const Keys = styled.span`
   }
 `;
 export const Valor = styled.input`
-  width: 100%;
-  height: 100%;
+  min-height: 200px;
   padding-left: 20px;
   border: 1px solid rgba(255, 255, 255, 0.5);
 
   &:disabled {
     background: #fff;
     color: #000;
+    width: 100%;
+    height: 100%;
   }
 `;

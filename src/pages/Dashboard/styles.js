@@ -176,6 +176,7 @@ export const DashboardCash = styled.div`
 export const CashMenu = styled.div`
   display: flex;
   flex: 1;
+  min-height: 80px;
   width: 100%;
   max-width: 800px;
   justify-content: center;

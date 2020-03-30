@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { addAuthListener, loginIn } from "../../firebase";
+import { addAuthListener } from "../../firebase";
+import api from "../../services/api";
 import { Container } from "./styles";
 import "./styles.css";
 // import { Container } from './styles';
@@ -8,22 +9,11 @@ import "./styles.css";
 export default function Lg() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginMessage, setLoginMessage] = useState("");
   let history = useHistory();
   let location = useLocation();
 
   let { from } = location.state || { from: { pathname: "/dashboard" } };
-
-  const Auth = {
-    isAuthenticated: false,
-    authenticate(cb) {
-      Auth.isAuthenticated = true;
-      setTimeout(cb, 100); // fake async
-    },
-    signout(cb) {
-      Auth.isAuthenticated = false;
-      setTimeout(cb, 100);
-    }
-  };
 
   useEffect(() => {
     if (sessionStorage.getItem("user") != null) {
@@ -42,8 +32,18 @@ export default function Lg() {
   function handlePassword(event) {
     setPassword(event.target.value);
   }
-  function enter() {
-    loginIn(email, password);
+  async function enter() {
+    const response = await api
+      .post("/companyLogin", {
+        email,
+        password
+      })
+      .then(user => {
+        alert(user.data.msg);
+      })
+      .catch(err => {
+        alert(response.data.msg);
+      });
   }
   return (
     <Container className="container">

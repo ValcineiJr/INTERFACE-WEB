@@ -67,7 +67,7 @@ export default function Dashboard() {
     ItemColor: "#fafafa",
     colorText: "#171717"
   };
-  const ItensInfo = [
+  const [ItensInfo, setItensInfo] = useState([
     {
       name: "Caixa",
       icon: "fas fa-cash-register",
@@ -92,8 +92,8 @@ export default function Dashboard() {
       area: "tres",
       cor1: "#fb6340",
       cor2: "#fbb140",
-      auth: "Acesso Permitido",
-      verified: 1
+      auth: "Autenticação Necessária",
+      verified: 0
     },
     {
       name: "Administração",
@@ -104,7 +104,7 @@ export default function Dashboard() {
       auth: "Acesso Restrito",
       verified: 0
     }
-  ];
+  ]);
 
   const ItensDrop = [
     {
