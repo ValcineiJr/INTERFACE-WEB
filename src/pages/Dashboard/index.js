@@ -42,14 +42,15 @@ export default function Dashboard() {
   let history = useHistory();
   let location = useLocation();
 
-  let { from } = location.state || { from: { pathname: "/dashboard" } };
+  let { from } = location.state || { from: { pathname: "/" } };
 
   const user = sessionStorage.getItem("user");
 
   useEffect(() => {
     if (!user) {
-      history.replace("/");
+      history.replace(from);
     }
+    console.log(user);
   }, [user]);
 
   const PrimaryTheme = {
@@ -191,7 +192,7 @@ export default function Dashboard() {
     return (
       <>
         <span type="button" id="dropdownMenuButton" data-toggle="dropdown">
-          Empresa
+          {user.charAt(0).toUpperCase() + user.slice(1)}
         </span>
         <div
           class="dropdown-menu dropdown-menu-right"

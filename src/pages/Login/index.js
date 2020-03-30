@@ -12,7 +12,6 @@ import {
   TextMessage,
   TitleBox
 } from "./styles";
-// import { Container } from './styles';
 
 export default function Lg() {
   const [email, setEmail] = useState("");
@@ -80,7 +79,7 @@ export default function Lg() {
               id="email"
               required
               value={email}
-              onChange={e => setEmail(e.target.value)}
+              onChange={e => setEmail(e.target.value.toLowerCase())}
             />
           </InputIcon>
 
