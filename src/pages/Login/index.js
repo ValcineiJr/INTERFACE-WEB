@@ -2,8 +2,15 @@ import React, { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import { addAuthListener } from "../../firebase";
 import api from "../../services/api";
-import { Container } from "./styles";
-import "./styles.css";
+import {
+  BoxLogin,
+  Container,
+  ForgotPassword,
+  FormLogin,
+  InputIcon,
+  SubmitBtn,
+  TitleBox
+} from "./styles";
 // import { Container } from './styles';
 
 export default function Lg() {
@@ -39,52 +46,52 @@ export default function Lg() {
         password
       })
       .then(user => {
-        alert(user.data.msg);
+        setLoginMessage(user.data.msg);
       })
       .catch(err => {
-        alert(response.data.msg);
+        setLoginMessage(response.data.msg);
       });
   }
   return (
-    <Container className="container">
-      <h1 className="titleBox">Login</h1>
-      <div className="form">
-        <label htmlFor="email">Email</label>
-        <div className="input-Icon">
-          <i class="far fa-user" />
-          <input
-            type="text"
-            placeholder="Email"
-            name="email"
-            id="email"
-            required
-            value={email}
-            onChange={handleEmail}
-            className="inputblock"
-          />
-        </div>
+    <Container>
+      <BoxLogin>
+        <TitleBox>Login</TitleBox>
+        <FormLogin>
+          <label htmlFor="email">Email</label>
+          <InputIcon>
+            <i class="far fa-user" />
+            <input
+              type="text"
+              placeholder="Email"
+              name="email"
+              id="email"
+              required
+              value={email}
+              onChange={handleEmail}
+              className="inputblock"
+            />
+          </InputIcon>
 
-        <label htmlFor="pass">Senha</label>
-        <div className="input-Icon">
-          <i class="fas fa-lock" />
-          <input
-            type="password"
-            placeholder="Senha"
-            name="password"
-            id="pass"
-            value={password}
-            onChange={handlePassword}
-            required
-            className="inputblock"
-          />
-        </div>
-      </div>
-      <div className="forgotPassword">
-        <Link to="/forgotpassword">Esqueceu a senha?</Link>
-      </div>
-      <button className="submitBtn" onClick={enter}>
-        ENTRAR
-      </button>
+          <label htmlFor="pass">Senha</label>
+          <InputIcon>
+            <i class="fas fa-lock" />
+            <input
+              type="password"
+              placeholder="Senha"
+              name="password"
+              id="pass"
+              value={password}
+              onChange={handlePassword}
+              required
+              className="inputblock"
+            />
+          </InputIcon>
+          <ForgotPassword>
+            <Link to="/forgotpassword">Esqueceu a senha?</Link>
+          </ForgotPassword>
+          <SubmitBtn type="submit" value="Entrar" />
+        </FormLogin>
+      </BoxLogin>
     </Container>
   );
 }
