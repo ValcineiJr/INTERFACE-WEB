@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
-import { addAuthListener } from "../../firebase";
 import api from "../../services/api";
 import {
   BoxLogin,
@@ -24,17 +23,13 @@ export default function Lg() {
   let location = useLocation();
 
   let { from } = location.state || { from: { pathname: "/dashboard" } };
+  const user = sessionStorage.getItem("user");
 
   useEffect(() => {
-    if (sessionStorage.getItem("user") != null) {
+    if (user != null) {
       history.replace(from);
     }
-    addAuthListener(user => {
-      if (user) {
-        history.replace(from);
-      }
-    });
-  }, []);
+  }, [user]);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -44,7 +39,14 @@ export default function Lg() {
       password
     });
 
-    setLoginMessage(response.data.msg);
+    let res = response.data.msg;
+    let name = response.data.name;
+    setLoginMessage(res);
+
+    if (res == "Sucesso") {
+      sessionStorage.setItem("user", name);
+      history.replace(from);
+    }
   }
 
   function Message() {

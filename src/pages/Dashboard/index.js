@@ -5,7 +5,6 @@ import logo from "../../assets/img/logo.png";
 import Calculator from "../../components/Calculator";
 import Form from "../../components/Form";
 import SystemInfo from "../../components/SystemInfo";
-import { addAuthListener, logOut } from "../../firebase";
 import {
   AuthIcon,
   AvatarConfig,
@@ -45,13 +44,13 @@ export default function Dashboard() {
 
   let { from } = location.state || { from: { pathname: "/dashboard" } };
 
+  const user = sessionStorage.getItem("user");
+
   useEffect(() => {
-    addAuthListener(user => {
-      if (!user) {
-        history.replace("/");
-      }
-    });
-  }, []);
+    if (!user) {
+      history.replace("/");
+    }
+  }, [user]);
 
   const PrimaryTheme = {
     bgColor: "#172b4d",
@@ -184,7 +183,7 @@ export default function Dashboard() {
   }
 
   function getOff() {
-    logOut();
+    sessionStorage.removeItem("user");
     history.replace(from);
   }
 
