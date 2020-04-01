@@ -51,10 +51,14 @@ export const Keys = styled.span`
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: all 0.6s;
 
-  &:active {
-    transform: translateY(4px);
+  &:hover {
     background: #fff;
     color: #0a1b36;
+  }
+  &:active {
+    transform: translateY(4px);
+    background: #0a1b36;
+    color: #fff;
   }
 `;
 export const Valor = styled.input`

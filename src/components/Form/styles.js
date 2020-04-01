@@ -2,6 +2,9 @@ import styled from "styled-components";
 
 export const Container = styled.form`
   flex: 1;
+
+  font-family: "Poppins", sans-serif;
+  position: relative;
 `;
 export const SignIn = styled.input`
   margin-top: 23px;
@@ -39,6 +42,7 @@ export const FormBox = styled.div`
 export const FormHeader = styled.div`
   display: flex;
   justify-content: flex-end;
+  align-items: center;
 `;
 export const FormBody = styled.div`
   display: flex;
@@ -48,8 +52,6 @@ export const FormTitle = styled.span`
   font-size: 26px;
   font-weight: bold;
   color: #fafafa;
-
-  font-family: "Poppins", sans-serif;
 `;
 export const CloseButton = styled.span`
   i {
@@ -57,4 +59,14 @@ export const CloseButton = styled.span`
     cursor: pointer;
     color: #fff;
   }
+`;
+export const MessageBox = styled.span`
+  padding: 20px 40px;
+  display: ${props => props.display};
+  background: #dc3545;
+  position: absolute;
+  left: 50%;
+  color: #fff;
+  border-radius: 10px;
+  transform: translateX(-50%);
 `;

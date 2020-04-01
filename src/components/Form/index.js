@@ -7,10 +7,11 @@ import {
   FormHeader,
   FormTitle,
   Input,
+  MessageBox,
   SignIn
 } from "./styles";
 
-export default function Form({ closeForm, title, onSubmit }) {
+export default function Form({ message, closeForm, title, onSubmit }) {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const company = sessionStorage.getItem("user");
@@ -32,13 +33,17 @@ export default function Form({ closeForm, title, onSubmit }) {
       name: name.toLowerCase(),
       password,
       company,
-      access
+      access,
+      title
     });
   }
 
   return (
     <Container onSubmit={handleSubmit}>
       <FormHeader>
+        <MessageBox display={message == "" ? "none" : "flex"}>
+          {message}
+        </MessageBox>
         <CloseButton onClick={closeForm}>
           <i class="fa fa-times"></i>
         </CloseButton>

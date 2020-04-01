@@ -40,19 +40,32 @@ export default function Dashboard() {
   const [showSystemInfo, setShowSystemInfo] = useState(false);
   const [TitleForm, setTitleForm] = useState("");
   const [ColorsForm, setColorForm] = useState([]);
+  const [loginMessage, setLoginMessage] = useState("");
+  const [openArea, setOpenArea] = useState("");
+
   let history = useHistory();
   let location = useLocation();
 
   let { from } = location.state || { from: { pathname: "/" } };
-
-  const user = sessionStorage.getItem("user");
+  const user = sessionStorage.getItem("user") || "";
+  const caixa = sessionStorage.getItem("caixaLivre") || "";
 
   useEffect(() => {
     if (!user) {
       history.replace(from);
     }
-    console.log(user);
-  }, [user]);
+    if (caixa) {
+      openCaixa();
+    }
+  }, []);
+
+  function openCaixa() {
+    let info = ItensInfo;
+    info[0].verified = 1;
+    info[0].auth = "Acesso Permitido";
+    setItensInfo(info);
+    setOpenArea("caixa");
+  }
 
   const PrimaryTheme = {
     bgColor: "#172b4d",
@@ -186,6 +199,7 @@ export default function Dashboard() {
 
   function getOff() {
     sessionStorage.removeItem("user");
+    sessionStorage.removeItem("caixaLivre");
     history.replace(from);
   }
 
@@ -307,14 +321,21 @@ export default function Dashboard() {
     let response = await api.post("/employeeLogin", data);
     let message = response.data.msg;
     let code = response.data.code;
-    console.log(response);
-    console.log("Data" + data);
+    let access = data.title;
+    console.log(response, data);
     if (code == 0) {
       //Funcionário não cadastrado
+      setLoginMessage(message);
     } else if (code == 1) {
       //Funcionário logado com sucesso
+      if (access == "Caixa") {
+        openCaixa();
+        setShowForm(false);
+        sessionStorage.setItem("caixaLivre", "true");
+      }
     } else {
       //Senha incorreta
+      setLoginMessage(message);
     }
   }
 
@@ -324,7 +345,10 @@ export default function Dashboard() {
         <Modal
           show={showForm}
           centered={true}
-          onHide={() => setShowForm(false)}
+          onHide={() => {
+            setShowForm(false);
+            setLoginMessage("");
+          }}
         >
           <Modal.Body
             style={{
@@ -334,8 +358,12 @@ export default function Dashboard() {
           >
             <Form
               title={TitleForm}
+              message={loginMessage}
               onSubmit={handleLoginEmployee}
-              closeForm={() => setShowForm(false)}
+              closeForm={() => {
+                setShowForm(false);
+                setLoginMessage("");
+              }}
             />
           </Modal.Body>
         </Modal>
@@ -358,7 +386,7 @@ export default function Dashboard() {
         }
       >
         <LogoBox onClick={openSystemInfo}>
-          <Logo src={logo} /> <LogoName>Horizon</LogoName>
+          <Logo onClick src={logo} /> <LogoName>Horizon</LogoName>
         </LogoBox>
         <MenuBox>
           <Button onClick={handleTheme}>
@@ -392,10 +420,14 @@ export default function Dashboard() {
           <RenderItem />
         </DashboardMenu>
         <Modals />
-        <DashboardCash>
-          <CashMenu>MENU</CashMenu>
-          <Calculator />
-        </DashboardCash>
+        {openArea == "caixa" ? (
+          <DashboardCash>
+            <CashMenu>MENU</CashMenu>
+            <Calculator />
+          </DashboardCash>
+        ) : (
+          ""
+        )}
       </Body>
     </Container>
   );

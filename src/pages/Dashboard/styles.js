@@ -1,9 +1,15 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 11;
   background: #172b4d;
-
-  padding-bottom: 58px;
+  min-width: 100%;
+  min-height: 100%;
 `;
 export const Header = styled.div`
   background: #0a1b36;
@@ -13,10 +19,11 @@ export const Header = styled.div`
   justify-content: space-between;
 `;
 export const Body = styled.div`
-  background: ${props => props.cor};
+  background: #172b4d;
   padding: 0 25px;
   padding-top: 50px;
-  height: 89%;
+
+  padding-bottom: 50px;
 `;
 export const MenuBox = styled.div`
   display: flex;
@@ -66,6 +73,7 @@ export const DashboardItem = styled.div`
   border-radius: 5px;
 
   &:hover {
+    border-bottom: 1px solid #fff;
     transform: translateY(-4px);
     box-shadow: 0 10px 15px ${props => props.shadowColor},
       0 5px 2px ${props => props.shadowColor};
@@ -171,7 +179,7 @@ export const DashboardCash = styled.div`
   flex-direction: column;
   align-items: center;
   margin-top: 65px;
-  height: 400px;
+  min-height: 400px;
 `;
 export const CashMenu = styled.div`
   display: flex;
