@@ -54,6 +54,9 @@ export const InputIcon = styled.div`
     padding-left: 15px;
     padding-top: 10px;
   }
+  input{
+    background:#fafafa;
+  }
 `;
 export const ForgotPassword = styled.div`
   display: flex;

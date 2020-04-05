@@ -30,7 +30,14 @@ import {
   Logo,
   LogoBox,
   LogoName,
-  MenuBox
+  MenuBox,
+  PrincipalCozinha,
+  PrincipalCozinha2,
+  TextoCozinha,
+  ContainerCozinha,
+  PedidosItens,
+  DivPedidosItens,
+  DivImg
 } from "./styles";
 import "./styles.css";
 
@@ -50,14 +57,14 @@ export default function Dashboard() {
   const user = sessionStorage.getItem("user") || "";
   const caixa = sessionStorage.getItem("caixaLivre") || "";
 
-  useEffect(() => {
-    if (!user) {
-      history.replace(from);
-    }
-    if (caixa) {
-      openCaixa();
-    }
-  }, []);
+ // useEffect(() => {
+  //  if (!user) {
+   //   history.replace(from);
+  //  }
+  //  if (caixa) {
+  //    openCaixa();
+ //   }
+ // }, []);
 
   function openCaixa() {
     let info = ItensInfo;
@@ -81,6 +88,7 @@ export default function Dashboard() {
     ItemColor: "#fafafa",
     colorText: "#171717"
   };
+    //Itens da Dashboard
   const [ItensInfo, setItensInfo] = useState([
     {
       name: "Caixa",
@@ -119,7 +127,6 @@ export default function Dashboard() {
       verified: 0
     }
   ]);
-
   const ItensDrop = [
     {
       name: "Vendas",
@@ -143,7 +150,7 @@ export default function Dashboard() {
       slug: "#"
     }
   ];
-
+        //Tema
   function handleTheme() {
     if (theme == "dark") {
       setTheme("ligth");
@@ -428,6 +435,21 @@ export default function Dashboard() {
         ) : (
           ""
         )}
+        <ContainerCozinha>
+        <PrincipalCozinha>
+          <TextoCozinha>
+              Pedidos
+            </TextoCozinha>
+        <PrincipalCozinha2>
+            <DivPedidosItens>
+              <PedidosItens>
+
+              </PedidosItens> 
+            </DivPedidosItens>
+        </PrincipalCozinha2>
+        </PrincipalCozinha>
+        <button>FINALIZADO</button>
+        </ContainerCozinha>
       </Body>
     </Container>
   );

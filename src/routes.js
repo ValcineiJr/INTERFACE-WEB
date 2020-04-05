@@ -9,7 +9,7 @@ export default function Routes() {
     <Router>
       <Switch>
         <Route path="/" exact>
-          <Login />
+          <Dashboard />
         </Route>
         <Route path="/perfil" exact>
           <Perfil />
@@ -19,6 +19,9 @@ export default function Routes() {
         </Route>
         <Route path="/dashboard" exact>
           <Dashboard />
+        </Route>
+        <Route path="/Login" exact>
+          <Login />
         </Route>
       </Switch>
     </Router>
