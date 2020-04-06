@@ -17,7 +17,7 @@ export default function Cozinha () {
             <h1>Pedidos</h1>
           <ContainerPrincipal/>
           < BackgroundButton>
-            <button>SAIR</button>
+            <button href='#' type="reset">SAIR</button>
           </BackgroundButton>
     </Body>
   );

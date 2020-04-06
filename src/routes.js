@@ -4,6 +4,7 @@ import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
 import CozinhaDashboard from './pages/Internas/Cozinha'
+import CadastrarProdutos from './pages/Internas/CadastrarProdutos'
 export default function Routes() {
   return (
     <Router>
@@ -16,6 +17,9 @@ export default function Routes() {
         </Route>
         <Route path="/cozinha" exact>
           <CozinhaDashboard />
+        </Route>
+        <Route path="/Cadastrar" exact>
+          <CadastrarProdutos  />
         </Route>
         <Route path="/Login" exact>
           <Login />
