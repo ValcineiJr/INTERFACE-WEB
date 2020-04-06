@@ -10,13 +10,20 @@ export const Body = styled.div`
   background: #172b4d;
   min-width: 100%;
   min-height: 100%;
+  font-family: "Poppins", sans-serif;
   align-items:center;
+  h1{
+    margin-top:20px;
+    color:white;
+  }
 `;
+
+
 export const ContainerPrincipal = styled.div`
   height:400px;
   width:90%;
   background:white;
-  margin-top:80px;
+  margin-top:10px;
   border-radius:5px;
 `;
 export const BackgroundButton = styled.div`
