@@ -435,21 +435,7 @@ export default function Dashboard() {
         ) : (
           ""
         )}
-        <ContainerCozinha>
-        <PrincipalCozinha>
-          <TextoCozinha>
-              Pedidos
-            </TextoCozinha>
-        <PrincipalCozinha2>
-            <DivPedidosItens>
-              <PedidosItens>
 
-              </PedidosItens> 
-            </DivPedidosItens>
-        </PrincipalCozinha2>
-        </PrincipalCozinha>
-        <button>FINALIZADO</button>
-        </ContainerCozinha>
       </Body>
     </Container>
   );

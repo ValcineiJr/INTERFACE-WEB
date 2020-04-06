@@ -1,0 +1,7 @@
+.drop{
+  display: flex;
+  width: 300px;
+  padding: 5px 20px;
+  justify-content: space-between;
+  align-items: center;
+}
