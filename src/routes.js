@@ -1,24 +1,28 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Dashboard from "./pages/Dashboard";
-import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
+import CozinhaDashboard from './pages/Internas/Cozinha'
+import CadastrarProdutos from './pages/Internas/CadastrarProdutos'
 export default function Routes() {
   return (
     <Router>
       <Switch>
         <Route path="/" exact>
-          <Login />
+          <Dashboard />
         </Route>
         <Route path="/perfil" exact>
           <Perfil />
         </Route>
-        <Route path="/home" exact>
-          <Home />
+        <Route path="/cozinha" exact>
+          <CozinhaDashboard />
         </Route>
-        <Route path="/dashboard" exact>
-          <Dashboard />
+        <Route path="/Cadastrar" exact>
+          <CadastrarProdutos  />
+        </Route>
+        <Route path="/Login" exact>
+          <Login />
         </Route>
       </Switch>
     </Router>

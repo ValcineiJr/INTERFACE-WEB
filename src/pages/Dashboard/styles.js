@@ -207,4 +207,5 @@ export const CalculatorBox = styled.div`
       order: 1;
     }
   }
+
 `;
