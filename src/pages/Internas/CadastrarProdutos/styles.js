@@ -23,6 +23,9 @@ export const Box = styled.div`
   text-align:center;
   font-family: "Poppins", sans-serif;
   border-radius:5px;
+  @media (max-width: 375px) {
+      height:80%;
+  }
 `;
 export const Title = styled.h1`
   color:black;
@@ -41,6 +44,23 @@ export const Content = styled.div`
     height:40px;
     border-radius:3px;
   }
+  @media (max-width: 375px) {
+    button{
+      padding:0;
+    }
+  input{
+    width:25%;
+  }
+  @media (max-width: 414px) {
+    margin-top:50px;
+    input{
+      width:200px;
+  } 
+  @media (max-width: 360px) {
+    margin-top:35px;
+  } 
+  
+
 `;
 
 
@@ -49,6 +69,10 @@ export const NomedoProduto = styled.div`
 label{
   font-size:20px;
 }
+@media (max-width: 375px) {
+    div{
+      padding:0;
+    }
 `;
 export const Descrição = styled.div`
 label{
@@ -57,4 +81,8 @@ label{
 input{
 
 }
+@media (max-width: 375px) {
+    div{
+      padding:0;
+    }
 `;
