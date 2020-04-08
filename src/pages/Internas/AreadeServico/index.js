@@ -16,8 +16,14 @@ import './styles.css'
 export default function Cozinha () {
   return(
     <Container>
-          <Mesa/>
-          <Mesa/>
+          <Mesa>
+            <div className="Number" >
+              1
+            </div>
+            <div className="Value" >
+              R$:49,99
+            </div>
+          </Mesa>
 
           <div className="BackgroundButton" >
             <button type="submit"  className="button" ><i class="fas fa-plus"></i></button>

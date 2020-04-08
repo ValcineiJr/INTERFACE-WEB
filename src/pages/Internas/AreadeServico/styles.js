@@ -41,6 +41,22 @@ export const Container = styled.div`
     transform: translate(-50%, -50%) }
   }
 
+  .Number{
+    text-align:center;
+    width:300px;
+    padding:15px;
+    margin-left:25px;
+    background:#2dce89;
+    border-radius:5px;
+    color:white;
+    float:left;
+  }
+  .Value{
+    float:right;
+    width:80%;
+    margin-left:1080px;  
+  }
+
 `
 export const Mesa = styled.div`
     margin-top:30px;
@@ -50,6 +66,7 @@ export const Mesa = styled.div`
     align-items:center;
     font-family: "Poppins", sans-serif; 
     border-radius:5px;
+    display:flex;
 
       
 `
