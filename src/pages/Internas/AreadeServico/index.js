@@ -18,8 +18,8 @@ export default function Cozinha () {
     <Container>
           <Mesa/>
           <Mesa/>
-          <Mesa/>
-          <div >
+
+          <div className="BackgroundButton" >
             <button type="submit"  className="button" ><i class="fas fa-plus"></i></button>
           </div>
     </Container>

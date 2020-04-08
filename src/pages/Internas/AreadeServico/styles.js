@@ -13,9 +13,17 @@ export const Container = styled.div`
   align-items:center;
   font-family: "Poppins", sans-serif; 
   position: relative;
-  div{
-
+  width:100%;
+  height:100vh;
+ 
+  .BackgroundButton{
+    padding:50px;
+    align-items:center;
+    text-align:center;
+  }
   .button{
+    align-items:center;
+    text-align:center;
     height:60px;
     width:60px;
     border-radius:50%;
@@ -24,31 +32,13 @@ export const Container = styled.div`
     background:#1171ef;
     color:#FFFF;
     margin-top:350px;
-    @media (max-height: 736px) {
-        margin-top:320px;
-      } ;
-    @media (max-height: 812px) {
-      margin-top:380px;
-    };
-    @media (max-height: 1024px) {
-      margin-top:560px;
-      height:70px;
-      width:70px;
-    };
-    @media (max-height: 1366px) {
-      margin-top:850px;
-      height:90px;
-      width:90px;
-    };
-    @media (max-height: 731px) {
-      margin-top:200px;
-
-    };
-    @media (max-height: 850px) {
-      margin-top:380px;
-    };
-      
-    }
+    position:absolute;
+    bottom: 0;
+    margin-left: 10px;
+    margin-bottom: 30px;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%) }
   }
 
 `
@@ -60,9 +50,7 @@ export const Mesa = styled.div`
     align-items:center;
     font-family: "Poppins", sans-serif; 
     border-radius:5px;
-    @media (max-height: 1024px) {
-      height:90px;
-    };
+
       
 `
 
