@@ -10,16 +10,32 @@ export const Container = styled.div`
   background: #172b4d;
   min-width: 100%;
   min-height: 100%;
-  align-items:center;
   font-family: "Poppins", sans-serif; 
   position: relative;
   width:100%;
   height:100vh;
+  div {
+    .gasto{
+    background:red;
+  }
+  
+ 
  
   .BackgroundButton{
     padding:50px;
     align-items:center;
     text-align:center;
+    display:flex;
+  }
+  .Number{
+    text-align:center;
+    width:60px;
+    height:60%;
+    padding:15px;
+    margin-left:25px;
+    background:#2dce89;
+    border-radius:5px;
+    color:white;
   }
   .button{
     align-items:center;
@@ -39,35 +55,44 @@ export const Container = styled.div`
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%) }
+    cursor:pointer;
   }
 
-  .Number{
-    text-align:center;
-    width:300px;
-    padding:15px;
-    margin-left:25px;
-    background:#2dce89;
-    border-radius:5px;
-    color:white;
-    float:left;
+  .backgroundDiv{
+    display:flex; 
+    justify-content: space-between;
+    width:90%;
+  }
+  .BackgroundMesas{
+    display:flex;
+    flex-flow:row wrap;
   }
   .Value{
-    float:right;
-    width:80%;
-    margin-left:1080px;  
+    margin-top:15px;
   }
-
 `
 export const Mesa = styled.div`
     margin-top:30px;
-    width:90%;
+    width:15%;
     background:white; 
     height:80px;
     align-items:center;
     font-family: "Poppins", sans-serif; 
     border-radius:5px;
     display:flex;
-
+    margin-left:30px;
+    @media (max-width: 1450px) {
+      width:30%;
+    }
+    @media (max-width: 1400px) {
+      width:30%;
+    }
+    @media (max-width: 1050px) {
+      width:40%;
+    }
+    @media (max-width: 800px) {
+      width:90%;
+    }
       
 `
 
