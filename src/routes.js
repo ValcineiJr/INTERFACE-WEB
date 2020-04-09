@@ -5,6 +5,8 @@ import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
 import CozinhaDashboard from './pages/Internas/Cozinha'
 import CadastrarProdutos from './pages/Internas/CadastrarProdutos'
+import Servicos from './pages/Internas/Servicos'
+
 export default function Routes() {
   return (
     <Router>
@@ -23,6 +25,9 @@ export default function Routes() {
         </Route>
         <Route path="/Login" exact>
           <Login />
+        </Route>
+        <Route path="/Servicos" exact>
+          <Servicos/>
         </Route>
       </Switch>
     </Router>
