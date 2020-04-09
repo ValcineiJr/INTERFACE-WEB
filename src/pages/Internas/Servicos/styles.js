@@ -33,24 +33,45 @@ export const Container = styled.div`
   }
     };
     .Mesabg{
-      width:100%;
-      background:red;
+      width:30%;
+      margin:15px;
       height:60px;
-      display:flex;
-    }
+    };
   }
 `;
 export const BoxPrincipal = styled.div`
   background:white;
   width:90%;
-  height:700px;
+  height:400px;
   border-radius:10px;
+  display:flex;
 
 `;
+export const Numeracao = styled.div`
+  margin-top:12px;
+`;
 export const Mesas = styled.div`
-  background:red;
-  width:30%;
+  width:100%;
   height:60px;
+  background:#172b4d;
+  color:white;
   display:flex;
+  border-radius:5px;
+  justify-content:space-between;
+  .numeracao{
+    background:#2dcecc;
+    height:50px;
+    margin-top:5px;
+    margin-left:5px;
+    width:15%;
+    text-align:center;
+    border-radius:5px;
+  }
+  .Valor{
+    padding:10px;
+    margin-top:5px; 
+    color:#2dce89;
+    font-weight:bold;
+  }
 `;
 
