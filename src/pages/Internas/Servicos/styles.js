@@ -35,7 +35,10 @@ export const Container = styled.div`
     .Mesabg{
       width:30%;
       margin:15px;
-      height:60px;
+      height:80px;
+      @media (max-width: 1100px) {
+       width:90%;
+     }
     };
   }
 `;
@@ -45,6 +48,10 @@ export const BoxPrincipal = styled.div`
   height:400px;
   border-radius:10px;
   display:flex;
+  @media (max-width: 1100px) {
+    display:block;
+    align-items:center;
+  }
 
 `;
 export const Numeracao = styled.div`
@@ -52,7 +59,7 @@ export const Numeracao = styled.div`
 `;
 export const Mesas = styled.div`
   width:100%;
-  height:60px;
+  height:80px;
   background:#172b4d;
   color:white;
   display:flex;
@@ -61,17 +68,19 @@ export const Mesas = styled.div`
   .numeracao{
     background:#2dcecc;
     height:50px;
-    margin-top:5px;
-    margin-left:5px;
-    width:15%;
+    margin-top:13px;
+    margin-left:10px;
+    width:20%;
     text-align:center;
     border-radius:5px;
   }
   .Valor{
     padding:10px;
-    margin-top:5px; 
+    margin-top:14px; 
     color:#2dce89;
     font-weight:bold;
   }
+
 `;
+
 
