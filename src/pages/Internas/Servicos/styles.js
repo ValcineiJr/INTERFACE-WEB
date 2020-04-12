@@ -36,8 +36,12 @@ export const Container = styled.div`
       width:30%;
       margin:15px;
       height:80px;
+      cursor:pointer;
       @media (max-width: 1100px) {
        width:90%;
+     }
+     .BtnPedido{
+       width:100%;
      }
     };
   }
