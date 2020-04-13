@@ -6,7 +6,8 @@ import {
   Container,
   BoxPrincipal,
   Mesas,
-  Numeracao
+  Numeracao,
+  Pedidos
 
 
 } from "./styles";
@@ -38,7 +39,10 @@ export default function Cozinha () {
           <Modal.Title>Pedido !</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-
+            <Pedidos>
+              <label htmlFor="#">Café</label>   
+                <input type="checkbox" name="checkbox" id="checkbox"/>
+            </Pedidos>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="primary" onClick={handleClose} className="BtnPedido" >

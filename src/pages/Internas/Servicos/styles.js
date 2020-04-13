@@ -40,11 +40,7 @@ export const Container = styled.div`
       @media (max-width: 1100px) {
        width:90%;
      }
-     .BtnPedido{
-       width:100%;
-     }
     };
-  }
 `;
 export const BoxPrincipal = styled.div`
   background:white;
@@ -74,7 +70,7 @@ export const Mesas = styled.div`
     height:50px;
     margin-top:13px;
     margin-left:10px;
-    width:20%;
+    width:15%;
     text-align:center;
     border-radius:5px;
   }
@@ -84,7 +80,11 @@ export const Mesas = styled.div`
     color:#2dce89;
     font-weight:bold;
   }
-
+`;
+export const Pedidos = styled.div`
+  background:red;
+  justify-content:space-between;
+  width:100%;
 `;
 
 
