@@ -44,6 +44,9 @@ export const Content = styled.div`
     height:40px;
     border-radius:3px;
   }
+  .input{
+    border-color:black;
+  }
   @media (max-width: 375px) {
     button{
       padding:0;

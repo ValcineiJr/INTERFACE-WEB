@@ -27,7 +27,7 @@ export default function Cozinha () {
                 <div>
                   <label>Nome</label>
                 </div>
-                <input type="text" name="" id=""/>
+                <input type="text" name="" id="" className="input" />
               </NomedoProduto>
             </div>
             <div>
@@ -35,7 +35,7 @@ export default function Cozinha () {
                 <div>
                   <label htmlFor="">Descrição</label>
                 </div>
-                <input type="text" name="" id=""/>      
+                <input type="text" name="" id="" className="input" />      
               </Descrição>
             </div>
             <div>

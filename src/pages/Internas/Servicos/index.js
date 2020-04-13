@@ -7,7 +7,10 @@ import {
   BoxPrincipal,
   Mesas,
   Numeracao,
-  Pedidos
+  Pedidos,
+  ValueofProduct,
+  ItensPedidos,
+  SizeProducts
 
 
 } from "./styles";
@@ -23,6 +26,8 @@ export default function Cozinha () {
 
   
   const Valor = '56,99';
+  const ItensPedidosName = 'Capuccino' 
+  const ValorPedido = '4,99';
 
 
   return(
@@ -34,14 +39,29 @@ export default function Cozinha () {
             <div className="numeracao"><Numeracao>1</Numeracao></div>
             <div className="Valor">R${Valor}</div>
           </Mesas>
-          <Modal show={modalIsOpen} onHide={handleClose}>
+          <Modal show={true} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Pedido !</Modal.Title>
         </Modal.Header>
-        <Modal.Body>
+        <Modal.Body >
             <Pedidos>
-              <label htmlFor="#">Café</label>   
-                <input type="checkbox" name="checkbox" id="checkbox"/>
+              <ItensPedidos><label htmlFor="#">{ItensPedidosName}</label>   
+              </ItensPedidos>
+                <SizeProducts>
+                  <div>
+                    <button>P</button> 
+                  </div>
+                  <div>
+                    <button>M</button> 
+                  </div>
+                  <div>
+                    <button>G</button> 
+                  </div>
+                </SizeProducts>
+                <ValueofProduct>R${ValorPedido}</ValueofProduct>
+                <div>
+                 <input type="checkbox" name="checkbox" id="checkbox" className="Checkbox" />  
+                </div>
             </Pedidos>
         </Modal.Body>
         <Modal.Footer>

@@ -80,11 +80,39 @@ export const Mesas = styled.div`
     color:#2dce89;
     font-weight:bold;
   }
+
 `;
 export const Pedidos = styled.div`
-  background:red;
-  justify-content:space-between;
   width:100%;
+  justify-content:space-between;
+  display:flex; 
+
+  .Checkbox{
+    margin-top:14px;
+    margin-right:10px;  
+  }
+
 `;
+export const ValueofProduct = styled.div`
+    margin-top:10px;
+    margin-left:130px;
+`;
+export const ItensPedidos = styled.div`
+    margin-top:10px;
+    margin-left:10px;
+`;
+export const SizeProducts = styled.div`
+  display:flex;
+  margin-top:7px;  
+  div{
+    padding:5px;
+  } button{
+    border-color:black;
+      width:30px; 
+  }
+`;
+
+
+
 
 
