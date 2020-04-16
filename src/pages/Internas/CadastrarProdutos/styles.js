@@ -12,77 +12,25 @@ export const Container = styled.div`
   min-height: 100%;
   align-items:center;
   font-family: "Poppins", sans-serif; 
-`;
-export const Box = styled.div`
-  width:90%;
-  height:80%;
-  flex-direction: column;
-  position: absolute;
-  background:white;
-  margin-top:75px;
-  text-align:center;
-  font-family: "Poppins", sans-serif;
-  border-radius:5px;
-  @media (max-width: 375px) {
-      height:80%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  height:10vh;
+  form{
+    text-align:center;
+    background:white;
+    height:60%;
+    width:40%;
+    border-radius:5px;
+    .divForm{
+      margin-top:130px;
+    }
+
   }
 `;
 export const Title = styled.h1`
-  color:black;
-  font-family: "Poppins", sans-serif;
-  margin-top:60px;
-`;
-export const Content = styled.div`
-  margin-top:70px;
-  div{
-    padding:10px;
-  }
-  button{
-    background:#11cdef;
-    border-style:none;
-    width:250px;
-    height:40px;
-    border-radius:3px;
-  }
-  @media (max-width: 375px) {
-    button{
-      padding:0;
-    }
-  input{
-    width:25%;
-  }
-  @media (max-width: 414px) {
-    margin-top:50px;
-    input{
-      width:200px;
-  } 
-  @media (max-width: 360px) {
-    margin-top:35px;
-  } 
-  
-
-`;
-
-
-
-export const NomedoProduto = styled.div`
-label{
-  font-size:20px;
-}
-@media (max-width: 375px) {
-    div{
-      padding:0;
-    }
-`;
-export const Descrição = styled.div`
-label{
-  font-size:20px;
-}  
-input{
-
-}
-@media (max-width: 375px) {
-    div{
-      padding:0;
-    }
+    font-family: "Poppins", sans-serif; 
+    color:black;
 `;

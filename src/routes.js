@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Perfil from "./pages/Perfil";
 import CozinhaDashboard from './pages/Internas/Cozinha'
 import CadastrarProdutos from './pages/Internas/CadastrarProdutos'
+import AreadeServicoes from './pages/Internas/AreadeServico'
 export default function Routes() {
   return (
     <Router>
@@ -14,6 +15,9 @@ export default function Routes() {
         </Route>
         <Route path="/perfil" exact>
           <Perfil />
+        </Route>
+        <Route path="/Servicos" exact>
+          <AreadeServicoes />
         </Route>
         <Route path="/cozinha" exact>
           <CozinhaDashboard />
