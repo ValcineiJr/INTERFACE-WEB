@@ -1,12 +1,9 @@
 import React from 'react';
-
+import { Button } from 'react-bootstrap';
 import {
   Container,
-  Box,
-  Title,
-  Content,
-  NomedoProduto,
-  Descrição
+  Title
+  
 
 } from "./styles";
 
@@ -16,10 +13,17 @@ import './styles.css'
 export default function Cozinha () {
   return(
     <Container>
-      <Box>
-        <Title>CADASTRAR PRODUTOS</Title>
-        <Content>
+      <form action="#">
+        <Title> Cadastrar </Title>
+        <div className="divForm" >
           <div>
+            <label htmlFor="" placeholder="Nome do produto" > Nome </label>
+          </div>
+            <input type="text" className="mb-3" />
+        </div>
+        <div>
+          <div>
+
               <input type="file" name="" id=""/>
             </div>
             <div>
@@ -43,6 +47,16 @@ export default function Cozinha () {
             </div>
         </Content>
       </Box>
+
+            <label htmlFor="" placeholder="Nome do produto" > Descrição</label>
+          </div>
+            <input type="text" className="mb-3 inputtext2" />
+        </div>
+        <div>
+          <Button>Cadastrar</Button>
+        </div>
+      </form>
+
     </Container>
   );
 }
