@@ -23,6 +23,31 @@ export default function Cozinha () {
         </div>
         <div>
           <div>
+
+              <input type="file" name="" id=""/>
+            </div>
+            <div>
+              <NomedoProduto>
+                <div>
+                  <label>Nome</label>
+                </div>
+                <input type="text" name="" id="" className="input" />
+              </NomedoProduto>
+            </div>
+            <div>
+              <Descrição>
+                <div>
+                  <label htmlFor="">Descrição</label>
+                </div>
+                <input type="text" name="" id="" className="input" />      
+              </Descrição>
+            </div>
+            <div>
+              <button type="submit">Cadastrar</button>
+            </div>
+        </Content>
+      </Box>
+
             <label htmlFor="" placeholder="Nome do produto" > Descrição</label>
           </div>
             <input type="text" className="mb-3 inputtext2" />
@@ -31,6 +56,7 @@ export default function Cozinha () {
           <Button>Cadastrar</Button>
         </div>
       </form>
+
     </Container>
   );
 }
